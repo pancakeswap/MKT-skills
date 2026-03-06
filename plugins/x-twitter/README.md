@@ -1,6 +1,63 @@
-# X API
+# x-twitter
 
-31-command Claude Code skill for X/Twitter. Post, search, engage, moderate — all from your terminal.
+33-command Claude Code skill for X/Twitter. Post, search, engage, moderate, discover communities — all from your terminal.
+
+## Installation
+
+### Via Claude Code marketplace (recommended)
+
+```bash
+/plugin install x-twitter
+```
+
+### Manual installation
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/alberduris/claude-code-marketplace
+cd claude-code-marketplace/plugins/x-twitter
+
+# 2. Install dependencies
+npm install
+
+# 3. Build
+npm run build
+
+# 4. Add credentials (see Credentials section below)
+cp .env.example .env.local
+# then fill in your keys in .env.local
+```
+
+## Credentials
+
+Go to [developer.x.com](https://developer.x.com) > Apps > create or select an app > Keys and tokens.
+
+Required — set in `.env.local` or `.env` in your project root (or the plugin directory):
+
+```
+X_API_KEY=your_api_key
+X_API_SECRET=your_api_secret
+X_ACCESS_TOKEN=your_access_token
+X_ACCESS_TOKEN_SECRET=your_access_token_secret
+```
+
+Enable **OAuth 1.0a with Read and Write** permissions on the app to use write commands.
+
+Optional — needed for `search --all` (full archive back to 2006):
+
+```
+X_API_BEARER_TOKEN=your_bearer_token
+```
+
+## Usage
+
+Once installed, invoke the skill in three ways:
+
+- **Slash command:** `/x-twitter <command> [flags]`
+- **Natural language:** Claude auto-detects X/Twitter intent and invokes the skill
+- **Direct:** `node plugins/x-twitter/dist/x.js <command> [flags]`
+
+Write commands (`post`, `delete`, `like`, `unlike`, `repost`, `unrepost`, `follow`, `unfollow`, `bookmark`, `unbookmark`, `mute`, `unmute`, `hide-reply`) will always ask for confirmation before executing.
 
 ## Commands
 
@@ -33,10 +90,10 @@
 ### Feed
 | Command | Description |
 |---------|-------------|
-| `timeline` | Your home timeline |
+| `timeline` | Your home timeline (reverse chronological) |
 | `mentions` | Posts that mention you |
 
-> **Note (2026-02-14):** The `timeline` command returns the reverse chronological timeline, not the algorithmic "For you" feed. Even so, the X API returns heavily skewed results — mostly own tweets — and does not faithfully reproduce the "Following" tab on x.com. Use `--exclude replies,retweets` to filter out own replies and retweets and get a slightly better signal.
+> **Note (2026-02-14):** The X API returns heavily skewed timeline results — mostly own tweets. Use `--exclude replies,retweets` to improve signal.
 
 ### Bookmarks
 | Command | Description |
@@ -69,29 +126,11 @@
 | `search-users` | Search users by query |
 | `trending` | Trending topics (worldwide or personalized) |
 
-## Setup
-
-1. Go to [console.x.com](https://console.x.com) > Apps > Create a new App
-2. Enable OAuth 1.0a with **Read and Write** permissions
-3. Go to Keys and tokens, generate all four credentials
-4. Add them to `.env.local` or `.env`:
-
-```
-X_API_KEY=your_api_key
-X_API_SECRET=your_api_secret
-X_ACCESS_TOKEN=your_access_token
-X_ACCESS_TOKEN_SECRET=your_access_token_secret
-```
-
-### Optional: Bearer Token (full archive search)
-
-To use `search --all` (full archive back to 2006), you also need an App-Only Bearer Token:
-
-```
-X_API_BEARER_TOKEN=your_bearer_token
-```
-
-Generate it from the X Developer Console under **Keys and tokens > Bearer Token**. When present, the client auto-selects Bearer auth for read endpoints that require it.
+### Communities
+| Command | Description |
+|---------|-------------|
+| `search-communities` | Search communities by keyword |
+| `community` | Look up a community by ID |
 
 ## Requirements
 
