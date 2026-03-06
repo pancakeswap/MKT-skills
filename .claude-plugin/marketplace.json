@@ -1,11 +1,10 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "alberduris-marketplace",
+  "name": "pancakeswap-marketplace",
   "version": "1.0.0",
-  "description": "Claude Code plugins marketplace by @alberduris",
+  "description": "Claude Code plugins marketplace by @pancakeswap",
   "owner": {
-    "name": "alberduris",
-    "email": "alberduris@summiz.ai"
+    "name": "pancakeswap"
   },
   "plugins": [
     {
@@ -13,8 +12,7 @@
       "description": "33-command Claude Code skill for X/Twitter — post, search, engage, moderate, discover communities, all from your terminal",
       "version": "1.4.0",
       "author": {
-        "name": "alberduris",
-        "email": "alberduris@summiz.ai"
+        "name": "pancakeswap"
       },
       "source": "./plugins/x-twitter",
       "category": "productivity"

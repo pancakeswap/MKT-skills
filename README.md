@@ -8,7 +8,7 @@ A 33-command Claude Code skill for X/Twitter — post, search, engage, moderate,
 ## Installation
 
 ```bash
-/plugin install x-twitter
+/plugin install pancakeswap/MKT-skills x-twitter
 ```
 
 See [plugins/x-twitter/README.md](plugins/x-twitter/README.md) for setup and usage instructions.
