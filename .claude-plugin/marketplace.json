@@ -9,50 +9,6 @@
   },
   "plugins": [
     {
-      "name": "second-opinion",
-      "description": "Consult GPT-5 Pro for alternative perspectives; supports context injection, web search, and configurable models",
-      "version": "1.1.2",
-      "author": {
-        "name": "alberduris",
-        "email": "alberduris@summiz.ai"
-      },
-      "source": "./plugins/second-opinion",
-      "category": "augmentation"
-    },
-    {
-      "name": "langfuse-traces",
-      "description": "Query Langfuse traces for debugging LLM calls, analyzing token usage, and investigating workflow executions",
-      "version": "1.0.0",
-      "author": {
-        "name": "alberduris",
-        "email": "alberduris@summiz.ai"
-      },
-      "source": "./plugins/langfuse-traces",
-      "category": "observability"
-    },
-    {
-      "name": "slack-reminders",
-      "description": "Schedule future reminders via Slack. Invoke when user wants to be reminded, notified, or alerted at a specific future date/time.",
-      "version": "1.0.0",
-      "author": {
-        "name": "alberduris",
-        "email": "alberduris@summiz.ai"
-      },
-      "source": "./plugins/slack-reminders",
-      "category": "productivity"
-    },
-    {
-      "name": "taxonomy-filesystem",
-      "description": "Local-first, agent-first Taxonomy-as-filesystem for documentation. One-time setup skill that scaffolds docs/ ontology with .purpose files.",
-      "version": "1.0.0",
-      "author": {
-        "name": "alberduris",
-        "email": "alberduris@gmail.com"
-      },
-      "source": "./plugins/taxonomy-filesystem",
-      "category": "documentation"
-    },
-    {
       "name": "x-twitter",
       "description": "33-command Claude Code skill for X/Twitter — post, search, engage, moderate, discover communities, all from your terminal",
       "version": "1.4.0",

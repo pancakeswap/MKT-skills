@@ -66,4 +66,6 @@ Communities:
 af) `search-communities` — search communities by keyword (name, description). Returns metadata: name, description, member count, join policy. @docs/search-communities.md.
 ag) `community` — look up a community by ID. @docs/community.md.
 
+[!CONFIRMATION] Before executing any write or destructive command, always show the user a plain-language summary of the action and wait for explicit confirmation. Write commands are: `post`, `delete`, `like`, `unlike`, `repost`, `unrepost`, `follow`, `unfollow`, `bookmark`, `unbookmark`, `mute`, `unmute`, `hide-reply`. Example format: "I'm about to post the following tweet: «{text}». Proceed?" — Do NOT run the command until the user confirms.
+
 [!CREDENTIALS] Four OAuth 1.0a variables are REQUIRED: `X_API_KEY`, `X_API_SECRET`, `X_ACCESS_TOKEN`, `X_ACCESS_TOKEN_SECRET`. They resolve from the first source that provides them: a) `.env.local` in cwd, b) `.env` in cwd, c) `.env.local` in the plugin directory, d) `.env` in the plugin directory, e) environment variables. Obtain them from the X Developer Console (Apps > Keys and tokens). One OPTIONAL variable: `X_API_BEARER_TOKEN` (OAuth 2.0 App-Only Bearer Token). When set, the client auto-selects Bearer auth for read endpoints that require it (e.g. full archive search with `--all`). Generate it from the X Developer Console (Apps > Keys and tokens > Bearer Token).
